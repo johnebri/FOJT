@@ -51,6 +51,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'app';
 
+$route['vote/(:any)'] = 'app/vote/$1';
+$route['vote_action'] = 'app/vote_action';
+
 $route['login'] = 'app/login';
 $route['signup'] = 'app/signup';
 $route['createcourse'] = 'app/createcourse';
@@ -61,6 +64,9 @@ $route['activateAccount'] = 'app/activateAccount';
 
 // $route['view/(.+)'] = 'Tickets/viewTicket/$1';
 // $route['admin/profile/(:any)'] = 'AdminControllers/Customers/profile/$1';
+
+
+
 $route['activateAccount/(:any)'] = 'app/activateAccount/$1';
 
 $route['404_override'] = '';

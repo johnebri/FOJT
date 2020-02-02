@@ -9,7 +9,7 @@ class App extends CI_Controller {
 		//$this->load->model('mapp');
 		// $this->load->library('session');
 		$this->load->helpers('url');
-		// $this->load->database();
+		$this->load->database();
 		$this->load->helper('string');
 		
 		require_once(APPPATH.'controllers/Email.php'); //include Email controller		
@@ -23,6 +23,27 @@ class App extends CI_Controller {
 
 	public function index() {
 		$this->load->view('index');
+	}
+
+	public function vote($con_id) {
+		$data = array(
+			'con_id' => $con_id
+		);
+		$this->load->view('vote', $data);
+	}
+
+	public function vote_action() {
+		$data = array(
+			'con_id' => $this->input->post('con_id'),
+			'no_of_votes' => $this->input->post('no_of_votes')
+		);
+
+		$cost_per_vote = 50;
+		$no_of_votes = $data['no_of_votes'];
+		$total_cost = $no_of_votes * $cost_per_vote;
+
+		// call paystack window from here
+
 	}
 
 	public function login() {
